@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import React, { useState, useContext } from 'react';
+import Users from './Users';
+import Comments from './Comments';
+import { NavLink, Route, Routes } from 'react-router-dom';
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavLink className='navlink' to={'/users'} >Users</NavLink>
+      <NavLink className='cNavlink' to={'/comments'} >Comments</NavLink>
+      
+      <Routes>
+        <Route path='/users' element={<Users/>} />
+        <Route path='/comments' element={<Comments/>} />
+      </Routes>
     </div>
   );
 }
